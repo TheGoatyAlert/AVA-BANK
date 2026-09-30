@@ -1,0 +1,16 @@
+<Window xmlns="https://github.com/avaloniaui" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        x:Class="rabota.LoginWindow" x:CompileBindings="False" 
+        Width="450" 
+        Height="500" 
+        Title="Вход" 
+        Background="#202520">
+    <StackPanel Margin="40" Spacing="12">
+        <TextBlock Text="АВА БАНК" FontSize="30" Foreground="#D4AF37" HorizontalAlignment="Center"/>
+        <TextBox x:Name="UsernameBox" PlaceholderText="Логин"/>
+        <TextBox x:Name="PasswordBox" PasswordChar="*" PlaceholderText="Пароль"/>
+        <Button x:Name="LoginButton" Content="ВОЙТИ"/>
+        <Button x:Name="RegisterButton" Content="Регистрация"/>
+        <TextBlock x:Name="ErrorText" Foreground="#FF6B6B" TextWrapping="Wrap"/>
+    </StackPanel>
+</Window>

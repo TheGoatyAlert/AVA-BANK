@@ -1,0 +1,185 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="rabota.AccountsWindow"
+        x:CompileBindings="False"
+        Width="1250"
+        Height="700"
+        Title="Счета"
+        Background="#202520">
+
+    <Grid RowDefinitions="Auto,Auto,*"
+          Margin="20">
+
+        <Grid ColumnDefinitions="*,180,220,150"
+              ColumnSpacing="10">
+
+            <TextBox x:Name="SearchBox"
+                     Grid.Column="0"
+                     Height="42"
+                     FontSize="15"
+                     PlaceholderText="Поиск по номеру счета"/>
+
+            <ComboBox x:Name="ClientCombo"
+                      Grid.Column="1"
+                      Height="42"/>
+
+            <ComboBox x:Name="TypeCombo"
+                      Grid.Column="2"
+                      Height="42"/>
+
+            <Button x:Name="SearchButton"
+                    Grid.Column="3"
+                    Content="Поиск"
+                    Height="42"/>
+
+        </Grid>
+
+        <Grid Grid.Row="1"
+              ColumnDefinitions="Auto,*"
+              Margin="0,12,0,15">
+
+            <Button x:Name="SortButton"
+                    Content="Сортировать по балансу ↓"
+                    Height="40"/>
+
+            <TextBlock x:Name="CountText"
+                       Grid.Column="1"
+                       Margin="20,10,0,0"
+                       FontSize="16"
+                       Foreground="#D4AF37"/>
+
+        </Grid>
+
+        <ScrollViewer Grid.Row="2"
+                      VerticalScrollBarVisibility="Auto">
+
+            <ItemsControl x:Name="AccountsList">
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+
+                        <Border Background="#292F29"
+                                BorderBrush="#D4AF37"
+                                BorderThickness="1"
+                                CornerRadius="8"
+                                Padding="18"
+                                Margin="0,0,0,12">
+
+                            <Grid ColumnDefinitions="250,230,180,180,*"
+                                  RowDefinitions="Auto,Auto">
+
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="Клиент"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding ClientName}"
+                                               FontSize="17"
+                                               FontWeight="Bold"
+                                               Foreground="White"
+                                               TextWrapping="Wrap"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock Text="Номер счета"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding AccountNumber}"
+                                               FontSize="15"
+                                               Foreground="White"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock Text="Тип счета"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding AccountType}"
+                                               FontSize="15"
+                                               Foreground="White"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="3">
+                                    <TextBlock Text="Баланс"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding Balance}"
+                                               FontSize="18"
+                                               FontWeight="Bold"
+                                               Foreground="#D4AF37"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="4">
+                                    <TextBlock Text="Статус"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding Status}"
+                                               FontSize="15"
+                                               Foreground="White"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="1"
+                                            Grid.Column="0"
+                                            Margin="0,18,0,0">
+
+                                    <TextBlock Text="ID счета"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding AccountId}"
+                                               FontSize="14"
+                                               Foreground="White"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="1"
+                                            Grid.Column="1"
+                                            Margin="0,18,0,0">
+
+                                    <TextBlock Text="ID клиента"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding ClientId}"
+                                               FontSize="14"
+                                               Foreground="White"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="1"
+                                            Grid.Column="2"
+                                            Grid.ColumnSpan="2"
+                                            Margin="0,18,0,0">
+
+                                    <TextBlock Text="Дата открытия"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding OpenedAt}"
+                                               FontSize="14"
+                                               Foreground="White"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                            </Grid>
+
+                        </Border>
+
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+
+            </ItemsControl>
+
+        </ScrollViewer>
+
+    </Grid>
+
+</Window>

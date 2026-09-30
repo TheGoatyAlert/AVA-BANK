@@ -1,0 +1,166 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="rabota.LoansWindow"
+        x:CompileBindings="False"
+        Width="1200"
+        Height="700"
+        Title="Кредиты"
+        Background="#202520">
+
+    <Grid RowDefinitions="Auto,Auto,*"
+          Margin="20">
+
+    <TextBlock Text="Кредиты клиентов"
+               FontSize="28"
+               FontWeight="Bold"
+               Foreground="#D4AF37"/>
+
+    <TextBlock Grid.Row="1"
+               x:Name="CountText"
+               FontSize="16"
+               Foreground="#D4AF37"
+               Margin="0,10,0,15"/>
+
+        <ScrollViewer Grid.Row="2"
+                      VerticalScrollBarVisibility="Auto">
+
+            <ItemsControl x:Name="LoansList">
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+
+                        <Border Background="#292F29"
+                                BorderBrush="#D4AF37"
+                                BorderThickness="1"
+                                CornerRadius="8"
+                                Padding="15"
+                                Margin="0,0,0,12">
+
+                            <Grid ColumnDefinitions="180,180,180,180,180,*"
+                                  RowDefinitions="Auto,Auto,Auto">
+
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="Номер кредита"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding LoanNumber}"
+                                               FontSize="16"
+                                               FontWeight="Bold"
+                                               Foreground="White"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock Text="Клиент"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding ClientName}"
+                                               FontSize="15"
+                                               Foreground="White"
+                                               TextWrapping="Wrap"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock Text="Сумма кредита"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding Amount}"
+                                               FontSize="16"
+                                               Foreground="White"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="3">
+                                    <TextBlock Text="Процентная ставка"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding InterestRate}"
+                                               FontSize="16"
+                                               Foreground="White"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="4">
+                                    <TextBlock Text="Остаток"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding RemainingAmount}"
+                                               FontSize="16"
+                                               Foreground="White"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="5">
+                                    <TextBlock Text="Статус"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding Status}"
+                                               FontSize="16"
+                                               FontWeight="Bold"
+                                               Foreground="#D4AF37"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="1"
+                                Grid.Column="0"
+                                Margin="0,15,0,0">
+
+                                    <TextBlock Text="Дата начала"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding StartDate}"
+                                               FontSize="14"
+                                               Foreground="White"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="1"
+                                Grid.Column="1"
+                                Margin="0,15,0,0">
+
+                                    <TextBlock Text="Дата окончания"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding EndDate}"
+                                               FontSize="14"
+                                               Foreground="White"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="1"
+                                Grid.Column="2"
+                                Margin="0,15,0,0">
+
+                                    <TextBlock Text="ID кредита"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding LoanId}"
+                                               FontSize="14"
+                                               Foreground="White"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                            </Grid>
+
+                        </Border>
+
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+
+            </ItemsControl>
+
+        </ScrollViewer>
+
+    </Grid>
+
+</Window>

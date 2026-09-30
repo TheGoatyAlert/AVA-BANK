@@ -1,0 +1,48 @@
+<Window xmlns="https://github.com/avaloniaui" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        x:Class="rabota.RegisterWindow" 
+        x:CompileBindings="False" 
+        Width="500" 
+        Height="600" 
+        Title="Регистрация" 
+        Background="#202520">
+
+    <StackPanel Margin="35" 
+                Spacing="12">
+
+        <TextBlock Text="РЕГИСТРАЦИЯ" 
+                   FontSize="28" 
+                   Foreground="#D4AF37" 
+                   HorizontalAlignment="Center"/>
+
+        <TextBox x:Name="FullNameBox" 
+                 PlaceholderText="ФИО"/>
+
+        <TextBox x:Name="UsernameBox" 
+                 PlaceholderText="Логин"/>
+
+        <TextBox x:Name="PasswordBox" 
+                 PasswordChar="*" 
+                 PlaceholderText="Пароль"/>
+
+        <ComboBox x:Name="RoleCombo">
+
+            <ComboBoxItem Content="Операционист" 
+                          IsSelected="True"/>
+
+            <ComboBoxItem Content="Менеджер"/>
+
+        </ComboBox>
+
+        <Button x:Name="RegisterButton" 
+                Content="ЗАРЕГИСТРИРОВАТЬСЯ"/>
+
+        <Button x:Name="BackButton" 
+                Content="Назад"/>
+
+        <TextBlock x:Name="ErrorText" 
+                   Foreground="#FF6B6B"/>
+   
+    </StackPanel>
+
+</Window>

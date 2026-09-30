@@ -1,0 +1,115 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="rabota.BranchesWindow"
+        x:CompileBindings="False"
+        Width="1200"
+        Height="650"
+        Title="Отделения"
+        Background="#202520">
+
+    <Grid RowDefinitions="Auto,Auto,*"
+          Margin="20">
+
+        <TextBlock Text="Отделения банка"
+                   FontSize="28"
+                   FontWeight="Bold"
+                   Foreground="#D4AF37"/>
+
+        <TextBlock Grid.Row="1"
+                   x:Name="CountText"
+                   FontSize="16"
+                   Foreground="#D4AF37"
+                   Margin="0,10,0,15"/>
+
+        <ScrollViewer Grid.Row="2"
+                      VerticalScrollBarVisibility="Auto">
+
+            <ItemsControl x:Name="BranchesList">
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+
+                        <Border Background="#292F29"
+                                BorderBrush="#D4AF37"
+                                BorderThickness="1"
+                                CornerRadius="8"
+                                Padding="20"
+                                Margin="0,0,0,12">
+
+                            <Grid ColumnDefinitions="80,250,350,200,*"
+                                  RowDefinitions="Auto,Auto">
+
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="ID"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding BranchId}"
+                                               FontSize="18"
+                                               FontWeight="Bold"
+                                               Foreground="#D4AF37"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock Text="Название"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding Name}"
+                                               FontSize="16"
+                                               FontWeight="Bold"
+                                               Foreground="White"
+                                               TextWrapping="Wrap"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock Text="Адрес"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding Address}"
+                                               FontSize="15"
+                                               Foreground="White"
+                                               TextWrapping="Wrap"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="3">
+                                    <TextBlock Text="Телефон"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding Phone}"
+                                               FontSize="15"
+                                               Foreground="White"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="4">
+                                    <TextBlock Text="Руководитель"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding ManagerName}"
+                                               FontSize="15"
+                                               Foreground="#D4AF37"
+                                               TextWrapping="Wrap"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                            </Grid>
+
+                        </Border>
+
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+
+            </ItemsControl>
+
+        </ScrollViewer>
+
+    </Grid>
+
+</Window>

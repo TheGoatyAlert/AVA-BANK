@@ -1,0 +1,6 @@
+@AvaBank.MobileApi_HostAddress = http://localhost:5149
+
+GET {{AvaBank.MobileApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

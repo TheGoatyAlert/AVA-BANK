@@ -1,0 +1,221 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="rabota.MainWindow"
+        x:CompileBindings="False"
+        Width="1250"
+        Height="750"
+        MinWidth="1000"
+        MinHeight="650"
+        Title="АВА БАНК"
+        Background="#181D19">
+
+    <Grid ColumnDefinitions="270,*">
+
+        <Border Grid.Column="0"
+                Background="#202720"
+                BorderBrush="#303830"
+                BorderThickness="0,0,1,0">
+
+            <Grid RowDefinitions="Auto,*,Auto"
+                  Margin="20">
+
+                <StackPanel>
+
+                    <TextBlock Text="АВА БАНК"
+                               FontSize="30"
+                               FontWeight="Bold"
+                               Foreground="#D4AF37"/>
+
+                    <TextBlock Text="Банковская система"
+                               FontSize="13"
+                               Foreground="#8F988F"
+                               Margin="0,4,0,0"/>
+
+                    <Border Background="#292F29"
+                            CornerRadius="8"
+                            Padding="12"
+                            Margin="0,25,0,0">
+
+                <StackPanel>
+
+                    <TextBlock x:Name="UserNameText"
+                               FontSize="15"
+                               FontWeight="Bold"
+                               Foreground="White"/>
+
+                    <TextBlock x:Name="RoleText"
+                               FontSize="13"
+                               Foreground="#D4AF37"
+                               Margin="0,4,0,0"/>
+
+                </StackPanel>
+
+                    </Border>
+
+                </StackPanel>
+
+                <ScrollViewer Grid.Row="1"
+                              Margin="0,25,0,15">
+
+                    <StackPanel Spacing="8">
+
+                        <Button x:Name="ClientsButton"
+                                Content="Клиенты"
+                                Height="48"/>
+
+                        <Button x:Name="AccountsButton"
+                                Content="Счета"
+                                Height="48"/>
+
+                        <Button x:Name="TransactionsButton"
+                                Content="Операции"
+                                Height="48"/>
+
+                        <Button x:Name="LoansButton"
+                                Content="Кредиты"
+                                Height="48"/>
+
+                        <Button x:Name="DepositsButton"
+                                Content="Вклады"
+                                Height="48"/>
+
+                        <Button x:Name="EmployeesButton"
+                                Content="Сотрудники"
+                                Height="48"/>
+
+                        <Button x:Name="BranchesButton"
+                                Content="Отделения"
+                                Height="48"/>
+
+                        <Button x:Name="PaymentsButton"
+                                Content="Платежи"
+                                Height="48"/>
+
+                    </StackPanel>
+
+                </ScrollViewer>
+
+                <Button Grid.Row="2"
+                        x:Name="LogoutButton"
+                        Content="Выйти"
+                        Height="45"/>
+
+            </Grid>
+
+        </Border>
+
+        <Grid Grid.Column="1"
+              RowDefinitions="Auto,*"
+              Margin="35">
+
+            <StackPanel>
+
+                <TextBlock x:Name="PageTitle"
+                           Text="Главная"
+                           FontSize="32"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+
+                <TextBlock x:Name="PageDescription"
+                           Text="Последние действия в банковской системе"
+                           FontSize="15"
+                           Foreground="#909890"
+                           Margin="0,6,0,0"/>
+
+                </StackPanel>
+
+            <Grid Grid.Row="1"
+                  Margin="0,30,0,0"
+                  RowDefinitions="Auto,*">
+
+                <Grid ColumnDefinitions="*,Auto">
+
+                    <TextBlock Text="Последние действия"
+                               FontSize="22"
+                               FontWeight="Bold"
+                               Foreground="#D4AF37"/>
+
+                    <Button x:Name="RefreshButton"
+                            Grid.Column="1"
+                            Content="Обновить"
+                            Width="110"
+                            Height="38"/>
+
+                </Grid>
+
+
+                <ScrollViewer Grid.Row="1"
+                              Margin="0,15,0,0"
+                              VerticalScrollBarVisibility="Auto">
+
+                    <ItemsControl x:Name="RecentActionsList">
+
+                        <ItemsControl.ItemTemplate>
+
+                            <DataTemplate>
+
+                                <Border Background="#242A24"
+                                        BorderBrush="#343C34"
+                                        BorderThickness="1"
+                                        CornerRadius="10"
+                                        Padding="18"
+                                        Margin="0,0,0,10">
+
+                                    <Grid ColumnDefinitions="160,*,180"
+                                          RowDefinitions="Auto,Auto">
+
+                                        <Border Grid.Column="0"
+                                                Background="#303830"
+                                                CornerRadius="6"
+                                                Padding="10,6"
+                                                HorizontalAlignment="Left">
+
+                                            <TextBlock Text="{Binding ActionType}"
+                                                       Foreground="#D4AF37"
+                                                       FontWeight="Bold"/>
+
+                                        </Border>
+
+                                        <TextBlock Grid.Column="1"
+                                                   Text="{Binding Description}"
+                                                   FontSize="15"
+                                                   Foreground="White"
+                                                   TextWrapping="Wrap"
+                                                   VerticalAlignment="Center"
+                                                   Margin="15,0"/>
+
+                                        <TextBlock Grid.Column="2"
+                                                   Text="{Binding Amount}"
+                                                   FontSize="17"
+                                                   FontWeight="Bold"
+                                                   Foreground="#D4AF37"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"/>
+
+
+                                        <TextBlock Grid.Row="1"
+                                                   Grid.Column="1"
+                                                   Text="{Binding ActionDate}"
+                                                   FontSize="12"
+                                                   Foreground="#7E877E"
+                                                   Margin="15,8,0,0"/>
+
+                                    </Grid>
+
+                                </Border>
+
+                            </DataTemplate>
+
+                        </ItemsControl.ItemTemplate>
+
+                    </ItemsControl>
+
+                </ScrollViewer>
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+
+</Window>

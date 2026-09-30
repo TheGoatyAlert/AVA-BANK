@@ -1,0 +1,186 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="rabota.TransactionsWindow"
+        x:CompileBindings="False"
+        Width="1250"
+        Height="750"
+        Title="Операции"
+        Background="#202520">
+
+    <Grid RowDefinitions="Auto,Auto,Auto,*"
+          Margin="20">
+
+        <Border Background="#292F29"
+                BorderBrush="#D4AF37"
+                BorderThickness="1"
+                CornerRadius="8"
+                Padding="15">
+
+            <Grid ColumnDefinitions="*,*,140,* ,130"
+                  ColumnSpacing="10">
+
+                <TextBox x:Name="SenderBox"
+                         Grid.Column="0"
+                         Height="42"
+                         PlaceholderText="Счет отправителя"/>
+
+                <TextBox x:Name="ReceiverBox"
+                         Grid.Column="1"
+                         Height="42"
+                         PlaceholderText="Счет получателя"/>
+
+                <TextBox x:Name="AmountBox"
+                         Grid.Column="2"
+                         Height="42"
+                         PlaceholderText="Сумма"/>
+
+                <TextBox x:Name="DescriptionBox"
+                         Grid.Column="3"
+                         Height="42"
+                         PlaceholderText="Описание"/>
+
+                <Button x:Name="TransferButton"
+                        Grid.Column="4"
+                        Content="Перевести"
+                        Height="42"/>
+
+            </Grid>
+
+        </Border>
+
+        <Grid Grid.Row="1"
+              ColumnDefinitions="*,120,Auto"
+              ColumnSpacing="10"
+              Margin="0,15,0,0">
+
+            <TextBox x:Name="SearchBox"
+                     Grid.Column="0"
+                     Height="42"
+                     PlaceholderText="Поиск операций по номеру счета"/>
+
+            <Button x:Name="SearchButton"
+                    Grid.Column="1"
+                    Content="Поиск"
+                    Height="42"/>
+
+            <TextBlock x:Name="CountText"
+                       Grid.Column="2"
+                       FontSize="16"
+                       Foreground="#D4AF37"
+                       Margin="15,10,0,0"/>
+
+        </Grid>
+
+        <TextBlock x:Name="MessageText"
+                   Grid.Row="2"
+                   FontSize="15"
+                   Foreground="#D4AF37"
+                   Margin="0,12,0,12"/>
+
+        <ScrollViewer Grid.Row="3"
+                      VerticalScrollBarVisibility="Auto">
+
+            <ItemsControl x:Name="TransactionsList">
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+
+                        <Border Background="#292F29"
+                                BorderBrush="#D4AF37"
+                                BorderThickness="1"
+                                CornerRadius="8"
+                                Padding="18"
+                                Margin="0,0,0,12">
+
+                            <Grid ColumnDefinitions="80,250,180,180,*"
+                                  RowDefinitions="Auto,Auto">
+
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="ID"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding TransactionId}"
+                                               FontSize="17"
+                                               FontWeight="Bold"
+                                               Foreground="#D4AF37"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock Text="Номер счета"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding AccountNumber}"
+                                               FontSize="15"
+                                               Foreground="White"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock Text="Тип операции"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding TransactionType}"
+                                               FontSize="15"
+                                               FontWeight="Bold"
+                                               Foreground="#D4AF37"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="3">
+                                    <TextBlock Text="Сумма"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding Amount}"
+                                               FontSize="17"
+                                               FontWeight="Bold"
+                                               Foreground="White"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="4">
+                                    <TextBlock Text="Описание"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding Description}"
+                                               FontSize="15"
+                                               Foreground="White"
+                                               TextWrapping="Wrap"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="1"
+                                            Grid.Column="0"
+                                            Grid.ColumnSpan="2"
+                                            Margin="0,18,0,0">
+
+                                    <TextBlock Text="Дата операции"
+                                               FontSize="12"
+                                               Foreground="#999999"/>
+
+                                    <TextBlock Text="{Binding CreatedAt}"
+                                               FontSize="14"
+                                               Foreground="White"
+                                               Margin="0,4,0,0"/>
+                                </StackPanel>
+
+                            </Grid>
+
+                        </Border>
+
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+
+            </ItemsControl>
+
+        </ScrollViewer>
+
+    </Grid>
+
+</Window>
+</Window>
